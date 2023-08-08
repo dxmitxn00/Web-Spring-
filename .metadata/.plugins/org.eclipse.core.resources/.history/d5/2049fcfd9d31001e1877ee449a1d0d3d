@@ -1,0 +1,20 @@
+package com.spring.view.controller;
+
+public class ActionForward { // ActionVO와 같은 개념
+	
+	private boolean redirect; // 보낼 데이터 유무
+	private String path; // 보낼 경로
+	
+	public boolean isRedirect() {
+		return redirect;
+	}
+	public void setRedirect(boolean redirect) {
+		this.redirect = redirect;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+}

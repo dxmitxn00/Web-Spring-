@@ -1,0 +1,30 @@
+package com.spring.view.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.spring.biz.member.MemberDAO;
+import com.spring.biz.member.MemberVO;
+
+public class LoginController implements Controller {
+
+	@Override
+	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		System.out.println("LoginController 로그");
+		
+		MemberVO mVO = new MemberVO();
+		MemberDAO mDAO = new MemberDAO();
+		mVO = mDAO.selectOne(mVO);
+		if(mVO!=null) {
+			session.setAttribute("");
+		}
+		
+		return "main.do"; // .do로 끝나기 때문에 컨트롤러로 감
+	}
+
+}

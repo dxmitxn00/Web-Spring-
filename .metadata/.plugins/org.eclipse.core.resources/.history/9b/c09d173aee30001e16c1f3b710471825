@@ -1,0 +1,12 @@
+package com.spring.biz.member;
+
+import java.util.List;
+
+public interface MemberService {
+	public MemberVO selectOne(MemberVO bVO);
+	public List<MemberVO> selectAll(MemberVO bVO);
+	
+	public boolean insert(MemberVO bVO);
+	public boolean update(MemberVO bVO);
+	public boolean delete(MemberVO bVO);
+}

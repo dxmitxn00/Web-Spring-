@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="UTF-8" import="java.util.List"%>
+
+<jsp:useBean id="mDAO" class = "com.spring.biz.member.MemberDAO" />    
+<jsp:useBean id="mVO" class = "com.spring.biz.member.MemberVO" />    
+<jsp:setProperty property = "*" name = "mVO" />
+<jsp:useBean id="bVO" class = "com.spring.biz.board.BoardVO" />    
+<jsp:useBean id="bDAO" class = "com.spring.biz.board.BoardDAO" />    
+<jsp:setProperty property = "*" name = "bVO" />
+
+<%
+   
+   String action = request.getParameter("action");
+
+	// 로그인 여부
+   if(action.equals("login")) { 
+      
+      mVO = mDAO.selectOne(mVO);
+      
+      if(mVO == null) {
+         response.sendRedirect("login.jsp");
+      }
+      else {
+         response.sendRedirect("controller.jsp?action=main");
+      }
+   }
+	
+	// 로그인 페이지 이동
+   else if(action.equals("loginPage")){ 
+	   response.sendRedirect("login.jsp");
+   }
+	
+	// 메인 페이지 이동
+   else if(action.equals("main")) {   
+      List<BoardVO> bdatas = bDAO.selectAll(null);
+      request.setAttribute("bdatas", bdatas);
+      request.getRequestDispatcher("main.jsp").forward(request, response);
+   }
+	
+	// 잘못된 액션 값
+   else {
+      out.println("log : 잘못된 action 값..");
+      response.sendRedirect("main.jsp");
+   }
+   
+   //   상단에, useBean 액션태그와 setProperty 액션태그를 사용했기 때문에
+   //   아래의 코드를 작성 하지 않아도 된다.
+   //   String mid = request.getParameter("mid");
+   //   String mpw = request.getParameter("mpw");
+   //   mVO.getMid(mid);
+   //   mVO.getMpw(mpw);
+
+%>

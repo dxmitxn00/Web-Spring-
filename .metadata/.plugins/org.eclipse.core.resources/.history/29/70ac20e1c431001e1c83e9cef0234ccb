@@ -1,0 +1,27 @@
+package com.spring.view.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class LogoutController {
+
+	@Override
+	public ModelAndView handleRequest(HttpServletRequest request) {
+		
+		System.out.println("LogoutController 로그");
+		
+		HttpSession session = request.getSession();
+	    session.removeAttribute("member");
+	      
+	    ModelAndView mav = new ModelAndView();
+	    mav.setViewName("redirect:main.do");
+	    
+	    return mav;
+	}
+
+
+}

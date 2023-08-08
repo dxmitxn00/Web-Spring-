@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="day58"/>
+<aop-project name="day60"/>
+<aop-project name="springMVC_XML"/>
+<aop-project name="springMVC_@"/>
+<aop-project name="springMVC_explain"/>
+</aop-reference-model>

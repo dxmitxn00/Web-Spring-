@@ -1,0 +1,12 @@
+INDEX VERSION 1.4+/Users/tandami/Desktop/pinTech/TAN/workspace_spring/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1794612681.index
+718837954.index
+601274549.index
+676762625.index
+1559602605.index
+4000506102.index
+2071883785.index
+819220843.index
+2267583118.index
+3238053139.index
+2030272092.index

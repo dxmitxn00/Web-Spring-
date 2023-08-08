@@ -1,0 +1,25 @@
+package com.spring.view.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.spring.biz.board.BoardDAO;
+import com.spring.biz.board.BoardVO;
+
+public class MainController implements Controller {
+
+	@Override
+	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		System.out.println("MainController 로그");
+		
+		return "main"; // main.jsp(View)로 감
+		// .jsp 안붙여도 DS에서 ViewResolver가 .jsp붙여줌
+	}
+
+}

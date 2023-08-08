@@ -1,0 +1,51 @@
+package com.spring.view.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class DispatcherServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public DispatcherServlet() {
+        super();
+    }
+
+    private void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String uri = request.getRequestURI(); // 요청받은 경로 저장 ex) https://어쩌고/main.do
+    	String command = uri.substring(uri.lastIndexOf("/")); // 마지막 인덱스의 /의 앞을 다 지우고 command에 저장 ex) /main.do
+    	System.out.println("command: " + command); // 로그
+    	
+    	ActionForward forward = null;
+    	// 메인 페이지로 이동
+    	if(command.equals("/main.do")) {
+    		MainController mc = new MainController(mc.handleRequest(request, response));
+    	}
+    	
+    	// 로그인 페이지로 이동
+    	else if(command.equals("/loginPage.do")) {
+    		forward = new LoginPageController().execute(request, response);
+    	}
+    	
+    	// 로그인
+    	else if(command.equals("/loginPage.do")) {
+    		
+    	}
+    	
+    	// 오류 : 고백 페이지로 이동
+    	else {
+    		response.sendRedirect("goback.jsp");
+    	}
+	}
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	doAction(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doAction(request, response);
+	}
+
+}
