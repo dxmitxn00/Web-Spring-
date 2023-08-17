@@ -20,7 +20,7 @@ public class MemberDAO {
 	private final String selectOne="SELECT * FROM MEMBER WHERE MID=? AND MPW=?"; // getOne
 	private final String selectAll="SELECT * FROM MEMBER"; // getAll
 	private final String update="UPDATE MEMBER SET MPW=?,NAME=? WHERE MID=?";
-	private final String delete="DELETE FROM MEMBER WHERE MID=? AND MPW=?";
+	private final String delete="DELETE FROM MEMBER WHERE MID=?";
 	
 	public MemberVO selectOne(MemberVO mVO) {
 		MemberVO data=null;
@@ -114,7 +114,6 @@ public class MemberDAO {
 		try {
 			pstmt=conn.prepareStatement(delete);
 			pstmt.setString(1, mVO.getMid());
-			pstmt.setString(2, mVO.getMpw());
 			int rs=pstmt.executeUpdate();
 			if(rs<=0) {
 				return false;

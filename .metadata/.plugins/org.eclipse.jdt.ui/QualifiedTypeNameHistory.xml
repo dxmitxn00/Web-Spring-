@@ -3,4 +3,5 @@
     <fullyQualifiedTypeName name="com.spring.biz.member.MemberService"/>
     <fullyQualifiedTypeName name="com.spring.biz.board.BoardDAO"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.RowMapper"/>
 </qualifiedTypeNameHistroy>

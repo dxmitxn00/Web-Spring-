@@ -17,8 +17,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
 	private BoardDAO boardDAO;
-	// 의존관계 -> DI
-	
+		
 	@Override
 	public BoardVO selectOne(BoardVO bVO) {
 		return boardDAO.selectOne(bVO);
@@ -31,6 +30,9 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean insert(BoardVO bVO) {
+		if(bVO.getContent().equals("티모 별로임")) {
+			throw new ArithmeticException("등록할 수 없는 게시글입니다.");
+		}
 		return boardDAO.insert(bVO);
 	}
 

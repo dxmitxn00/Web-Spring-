@@ -2,9 +2,44 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
 	<context:component-scan base-package="com.spring.biz" />
+
+
+
+	<aop:aspectj-autoproxy />
+	
+	
+	<!--
+	<bean id="logAdvice" class="com.spring.biz.common.LogAdvice"/>
+	<bean id="logAdvice2" class="com.spring.biz.common.LogAdvice2"/>
+		-> LogAdvice를 new 해서 logAdvice라는 이름으로 객체화 해줌
+	<bean id="aroundAdvice" class="com.spring.biz.common.AroundAdvice"/>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.spring.biz..*Impl.*(..))" id="aPointcut"/>
+			-> 어쩌고 com.spring.biz.어쩌고Impl.어쩌고에 있는 (어쩌고들-CRUD) 를 aPointCut으로 명명해 
+		<aop:pointcut expression="execution(* com.spring.biz..*Impl.select*(..))" id="bPointcut"/>
+		
+		<aop:aspect ref="logAdvice">
+			-> logAdvice라는 이름의 객체랑 결합해 
+         	<aop:before method="printLog" pointcut-ref="aPointcut" />
+         	-> logAdvice객체가 가지고 있는 메소드 printLog를 aPointCut인 CRUD 이전에 호출해줘 
+      	</aop:aspect>
+      	
+		<aop:aspect ref="logAdvice2">
+			-> logAdvice2라는 이름의 객체랑 결합해 
+         	<aop:after method="printLog2" pointcut-ref="aPointcut" />
+         	-> logAdvic2e객체가 가지고 있는 메소드 printLog를 aPointCut인 CRUD 이후에 호출해줘 
+      	</aop:aspect>
+      	
+      	<aop:aspect ref="aroundAdvice">
+      		<aop:around method="aroundPrintLog" pointcut-ref="bPointcut"/>
+      	</aop:aspect>
+	</aop:config>
+	-->
 
 </beans>
