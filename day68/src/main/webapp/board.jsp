@@ -31,7 +31,7 @@
 		<img alt="디폴트 이미지" src="images/noImg.jpg"/> <br>
 	</c:if>
 	<c:if test="${ not empty data.fileName }">
-		<img src="images/${ data.fileName }"> <br>
+		<img alt="${ data.fileName }" src="images/${ data.fileName }"> <br>
 	</c:if>
 	<c:if test="${data.writer eq member}">
 		<input type="submit" value="글 변경">&nbsp;&nbsp;&nbsp;<input type="button" onclick="del(${data.bid})" value="글 삭제">
