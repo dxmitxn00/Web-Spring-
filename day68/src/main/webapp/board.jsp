@@ -21,8 +21,9 @@
 <c:if test="${empty data}">
 	<h1>해당 게시글은 없거나 이용이 불가능한 게시글입니다!</h1>
 </c:if>
+
 <c:if test="${not empty data}">
-<form action="updateBoard.do" method="post">
+<form action="updateBoard.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="bid" value="${data.bid}">
 	<input type="text" name="writer" value="${data.writer}" disabled> <br>
 	<input type="text" name="title" required value="${data.title}"> <br>

@@ -8,7 +8,11 @@ public class BoardVO {
 	private String content;
 	private String writer;
 	private int cnt;
+	private String searchCondition;
+	private String searchContent;	
+	
 	private String fileName;
+	private MultipartFile fileUpload;
 	
 	public String getFileName() {
 		return fileName;
@@ -16,11 +20,6 @@ public class BoardVO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	private String searchCondition;
-	private String searchContent;	
-	
-	private MultipartFile fileUpload;
-	
 	public MultipartFile getFileUpload() {
 		return fileUpload;
 	}
